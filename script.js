@@ -2,6 +2,10 @@ let resposta;
 let user;
 let nome;
 let mensagemTemplate;
+let chat = document.querySelector(".bate-papo");
+
+
+
 entradaNaSala();
 
 
@@ -12,7 +16,7 @@ function entradaNaSala() {
     }
     const envio = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants ', user);
     envio.then(carregarMensagens);
-    envio.catch(erroNome)
+
 }
 
 function erroNome() {
@@ -21,15 +25,19 @@ function erroNome() {
 }
 
 function atualizarStatus() {
-    let online = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants ', user);
-
+    let online = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
+    online.catch(erroConexao)
+}
+function erroConexao (){
+    alert("Ops, você caiu. Loga ai de novo");
 }
 
 function carregarMensagens() {
     resposta = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     resposta.then(exibirMensagens)
 }
-function recarregarMensagens (){
+
+function recarregarMensagens() {
     resposta = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     resposta.then(exibirMensagens)
 }
@@ -60,11 +68,33 @@ function exibirMensagens(resposta) {
             <span class = "mensagem">${mensagens[i].text}</span></li>`
 
         }
-        document.querySelector(".bate-papo").innerHTML += `${mensagemTemplate}`
+        chat.innerHTML += `${mensagemTemplate}`
+
+
 
     }
+    novaMensagem()
+}
 
-} 
-/* setInterval(atualizarStatus, 5000); */
-setInterval (recarregarMensagens,3000);
+function novaMensagem() {
 
+    document.querySelector('.bate-papo').lastElementChild.scrollIntoView();
+}
+
+function enviarMensagem() {
+    let recado = document.querySelector('.texto').value
+
+    let estruturaMsg = {
+        from: `${user.name}`,
+        to: 'todos',
+        text: `${recado}`,
+        type: "message" // ou "private_message" para o bônus};
+
+    }
+    console.log('me chamou ?')
+    const mensagemEnviada = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',estruturaMsg);
+    recado.innerHTML = "";
+}
+   
+    setInterval(atualizarStatus, 5000);
+    setInterval(recarregarMensagens, 3000);
