@@ -7,7 +7,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.container {
+.conteudo {
     display: flex;
     position: relative;
 }
@@ -106,7 +106,6 @@ li {
     font-size: 14px;
     line-height: 16px;
     word-wrap: break-word;
-
     padding: 20px;
 }
 
