@@ -200,6 +200,7 @@ function exibirParticipantes() {
     document.querySelector(".sidebar").classList.remove("escondido");
     document.querySelector(".fechar-sidebar").classList.add("background-cinza")
     document.querySelector(".bate-papo").style.overflow = 'hidden';
+    
 }
 
 function fechaSidebar() {
@@ -222,7 +223,7 @@ function selecionarParticipante(elemento) {
     if (participanteSelecionado === 'Público') {
         recebedor = 'Todos';
     }
-
+    document.querySelector('.caixa-mensagem p').innerHTML = `Enviando para ${recebedor} (${privacidadeMensagem})`
 }
 
 function privacidade(elemento) {
@@ -237,6 +238,6 @@ function privacidade(elemento) {
     
     privacidadeMensagem = elemento.querySelector('p').innerHTML;
     console.log(privacidadeMensagem);
-
+    document.querySelector('.caixa-mensagem p').innerHTML = `Enviando para ${recebedor} (${privacidadeMensagem})`
 }
 

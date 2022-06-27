@@ -68,6 +68,21 @@ ion-icon:hover {
     width: 100%;
     border: none;
     outline: none;
+
+}
+
+.texto::placeholder {
+    color: #000000;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    font-style: italic;
+}
+
+.caixa-mensagem p {
+    color: #505050;
+    font-weight: 300px;
+    font-size: 14px;
 }
 
 .bate-papo {
