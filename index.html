@@ -18,7 +18,21 @@
 </head>
 
 <body>
+    <div class="tela-login">
+        <div class="login">
+            <img src="./img/logo 1.svg" alt="">
+            <input class="nome" type="text" placeholder="Digite Seu Nome">
+            <button onclick="telaLogin()">Entrar</button>
+            <div class="carregamento escondido">
+                <div class="loader"></div>
+                <h1>Aguarde</h1>
+            </div>
+
+        </div>
+    </div>
+
     <div class="container">
+
         <div class="topo">
             <img src="./img/logo 1.svg" alt="">
             <ion-icon name="people-sharp" onclick="exibirParticipantes()"></ion-icon>
@@ -43,7 +57,7 @@
                 <div onclick="selecionarParticipante(this)" class="person selecionado">
                     <ion-icon name="people-sharp"></ion-icon>
                     <p>Todos</p>
-                    <ion-icon  name="checkmark-outline"></ion-icon>
+                    <ion-icon name="checkmark-outline"></ion-icon>
                 </div>
 
             </ul>
@@ -52,7 +66,7 @@
                 <div class='publico selecionado' onclick="privacidade(this)">
                     <ion-icon name="lock-open-sharp"></ion-icon>
                     <p>Público</p>
-                    <ion-icon class="icone"  name="checkmark-outline"></ion-icon>
+                    <ion-icon class="icone" name="checkmark-outline"></ion-icon>
                 </div>
                 <div class='reservadamente' onclick="privacidade(this)">
                     <ion-icon name="lock-closed-sharp"></ion-icon>

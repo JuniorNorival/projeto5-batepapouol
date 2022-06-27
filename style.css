@@ -28,6 +28,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 3;
 }
 
 topo img {
@@ -63,7 +64,7 @@ ion-icon:hover {
     font-size: 26px;
 }
 
-input {
+.texto {
     width: 100%;
     border: none;
     outline: none;
@@ -120,7 +121,7 @@ li {
     padding: 20px 10px;
     background-color: #FFFFFF;
     width: 259px;
-    z-index: 2;
+    z-index: 3;
     overflow-y: scroll;
     overflow-x: hidden;
     top: 0px;
@@ -153,11 +154,8 @@ sidebar>span {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 2;
+    z-index: 3;
 }
-
-
-
 
 .person {
     display: flex;
@@ -181,7 +179,74 @@ sidebar>span {
     padding: 5px;
 }
 
+.tela-login {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    transform: scale(1);
 
+}
+
+.login {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login input {
+    width: 261px;
+    height: 54px;
+    text-align: center;
+
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+
+}
+
+.login button {
+    background-color: #E7E7E7;
+    border-radius: 9px;
+    width: 109px;
+    height: 45px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.login img {
+    margin-bottom: 100px;
+    width: 130px;
+    height: 92px;
+}
+
+.loader {
+    margin-top: 30px;
+    animation: is-rotating 0.5s infinite;
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #050505;
+    height: 50px;
+    width: 50px;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}
 
 .escondido {
     display: none;

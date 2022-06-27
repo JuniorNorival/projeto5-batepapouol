@@ -12,17 +12,27 @@ let participanteSelecionado;
 let privacidadeEscolhida;
 let privacidadeMensagem;
 
-entradaNaSala();
 
 
-document.addEventListener("keypress", function (e) {
+
+document.querySelector('.texto').addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
         enviarMensagem();
     }
 })
-
+document.querySelector('.nome').addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        telaLogin();
+    }
+})
+function telaLogin() {
+    nome = document.querySelector('.nome').value
+    
+    document.querySelector('.carregamento').classList.remove('escondido');
+    setTimeout(entradaNaSala,3000);
+}
 function entradaNaSala() {
-    nome = prompt("Qual a sua graça ?");
+    document.querySelector('.tela-login').classList.add('escondido');
     user = {
         name: nome
     }
@@ -32,7 +42,9 @@ function entradaNaSala() {
     privacidadeMensagem = 'Público';
     recebedor = 'Todos'
 
-
+    setInterval(buscaParticipantes, 10000);
+    setInterval(atualizarStatus, 5000);
+    setInterval(recarregarMensagens, 3000);
 }
 
 function erroNome() {
@@ -42,7 +54,7 @@ function erroNome() {
 
 function atualizarStatus() {
     let online = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
-    online.catch(erroConexao);
+    /* online.catch(erroConexao); */
 }
 
 function erroConexao() {
@@ -228,6 +240,3 @@ function privacidade(elemento) {
 
 }
 
-setInterval(buscaParticipantes, 10000);
-setInterval(atualizarStatus, 5000);
-setInterval(recarregarMensagens, 3000);
