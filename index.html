@@ -18,18 +18,55 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="topo">
+            <img src="./img/logo 1.svg" alt="">
+            <ion-icon name="people-sharp" onclick="exibirParticipantes()"></ion-icon>
+        </div>
+        <div class="conversa">
 
-    <div class="topo">
-        <img src="./img/logo 1.svg" alt="">
-        <ion-icon name="people-sharp"></ion-icon>
-    </div>
-    <ul class="bate-papo">
+            <ul class="bate-papo">
 
-    </ul>
-    <div class="inferior">
-        <input class = "texto" type="text" placeholder="Escreva aqui...">
-        <ion-icon onclick="enviarMensagem()" name="paper-plane-outline"></ion-icon>
+            </ul>
+
+            <div class="inferior">
+                <input class="texto" type="text" placeholder="Escreva aqui...">
+                <ion-icon onclick="enviarMensagem()" name="paper-plane-outline"></ion-icon>
+            </div>
+        </div>
+
+        <div class="sidebar escondido">
+            <div class="fechar-sidebar" onclick="fechaSidebar()"></div>
+            <h2>Escolha um contato <br> para enviar mensagem:</h2>
+
+            <ul class="participantes">
+                <div onclick="selecionarParticipante(this)" class="person selecionado">
+                    <ion-icon name="people-sharp"></ion-icon>
+                    <p>Todos</p>
+                    <ion-icon  name="checkmark-outline"></ion-icon>
+                </div>
+
+            </ul>
+            <div class="visibilidade">
+                <h2>Escolha a Visibilidade:</h2>
+                <div class='publico selecionado' onclick="privacidade(this)">
+                    <ion-icon name="lock-open-sharp"></ion-icon>
+                    <p>Público</p>
+                    <ion-icon class="icone"  name="checkmark-outline"></ion-icon>
+                </div>
+                <div class='reservadamente' onclick="privacidade(this)">
+                    <ion-icon name="lock-closed-sharp"></ion-icon>
+                    <p>Reservadamente</p>
+                    <ion-icon class="icone" name="checkmark-outline"></ion-icon>
+                </div>
+
+
+                </ul>
+            </div>
+        </div>
+
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
