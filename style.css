@@ -63,8 +63,11 @@ ion-icon:hover {
 .inferior>ion-icon {
     font-size: 26px;
 }
-
-.texto {
+.caixa-mensagem{
+    width: 100%;
+}
+.texto{
+    
     width: 100%;
     border: none;
     outline: none;

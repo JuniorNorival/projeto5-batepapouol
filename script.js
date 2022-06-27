@@ -27,15 +27,16 @@ document.querySelector('.nome').addEventListener("keypress", function (e) {
 })
 function telaLogin() {
     nome = document.querySelector('.nome').value
-    
+    user = {
+        name: nome
+    }
     document.querySelector('.carregamento').classList.remove('escondido');
     setTimeout(entradaNaSala,3000);
 }
 function entradaNaSala() {
     document.querySelector('.tela-login').classList.add('escondido');
-    user = {
-        name: nome
-    }
+    document.querySelector('.topo').classList.remove('escondido');
+   
     const envio = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants ', user);
     envio.then(carregarMensagens);
     envio.catch(erroNome);
@@ -48,13 +49,13 @@ function entradaNaSala() {
 }
 
 function erroNome() {
-    alert("Esse nome está inválido, por favor digie um nome válido");
+    alert("Esse nome está sendo usado, por favor digie um nome válido");
     window.location.reload();
 }
 
 function atualizarStatus() {
     let online = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
-    /* online.catch(erroConexao); */
+    online.catch(erroConexao);
 }
 
 function erroConexao() {
